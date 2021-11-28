@@ -169,7 +169,8 @@ int main() {
                     }
                 }
                 else if (strcmp(cmd, "UNDO")==0){
-                    status S;
+                    status A;
+                    
                     int a;
                     if (S.ronde == 1 ) {
                         S.ronde = 1;
@@ -182,16 +183,16 @@ int main() {
                         endturn = true;
                     }
                     else {
-                        Pop(&st, &S);
+                        Pop(&st, &A);
                         for(a=1;a<=npemain;a++){
-                            P.contents[a].position = S.Pl.contents[a].position;
-                            P.contents[a].skill = S.Pl.contents[a].skill;
-                            P.contents[a].playerBuff.isCerminPengganda = S.Pl.contents[a].playerBuff.isCerminPengganda;
-                            P.contents[a].playerBuff.isImun = S.Pl.contents[a].playerBuff.isImun;
-                            P.contents[a].playerBuff.isSenterPembesar = S.Pl.contents[a].playerBuff.isSenterPembesar;
-                            P.contents[a].playerBuff.isSenterPengecil = S.Pl.contents[a].playerBuff.isSenterPengecil;
-                            
+                            P.contents[a].position = A.Pl.contents[a].position;
+                            P.contents[a].skill = A.Pl.contents[a].skill;
+                            P.contents[a].playerBuff.isCerminPengganda = A.Pl.contents[a].playerBuff.isCerminPengganda;
+                            P.contents[a].playerBuff.isImun = A.Pl.contents[a].playerBuff.isImun;
+                            P.contents[a].playerBuff.isSenterPembesar = A.Pl.contents[a].playerBuff.isSenterPembesar;
+                            P.contents[a].playerBuff.isSenterPengecil = A.Pl.contents[a].playerBuff.isSenterPengecil;
                         }
+                        // S.ronde = S.ronde - 1;
                         UndoRonde(&S); 
                         urutan = 1;
                         endturn = true;
