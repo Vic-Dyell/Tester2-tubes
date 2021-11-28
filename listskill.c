@@ -213,7 +213,7 @@ void DelI (Listskill *L, int n){
     }    
 }
 
-void nambahskill (Listskill *L, int r){ // r di sini diambil dari randomize
+void nambahskill (Listskill *L, int r, boolean is_undo){ // r di sini diambil dari randomize
     int skill1;
     if (r==0){
         skill1 = 1; // id skill 1 : Pintu Ga Ke Mana-Mana
@@ -238,6 +238,10 @@ void nambahskill (Listskill *L, int r){ // r di sini diambil dari randomize
     else if (r==7 || r==8 || r==9){ 
         skill1 = 0; // skill 6 ga masuk ke list
         printf("Sayang sekali... Anda mendapatkan Teknologi Gagal \n");
+        if (is_undo == true && !(IsEmpty(*L))){
+            buangskill(L, Last(*L)->info);
+            is_undo = false;
+        }
     }    
 
     // harusnya udah dapet id skillnya
@@ -283,7 +287,7 @@ void printskill (Listskill L){
                 printf("Senter Pengecil Hoki\n");
             }
             else if (Info(CP)==5){
-                printf("Mesin Penukar Hoki\n");
+                printf("Mesin Penukar Posisi\n");
             }
             CP = Next(CP);
             i = i+1;

@@ -56,6 +56,8 @@ int main() {
     int i;
     int mainmenu;
     int l;
+    boolean is_undo;
+    is_undo = false;
     // MENU
     boolean endgame;
     endgame = false;
@@ -99,7 +101,7 @@ int main() {
             r = rskill(t);
             printf("RONDE: %d\n", S.ronde);
             printf("PEMAIN KE-%d\n", urutan);
-            nambahskill(&P.contents[urutan].skill, r); 
+            nambahskill(&P.contents[urutan].skill, r, is_undo); 
             while (endturn == false) {
                 char cmd[10]; 
                 int dadu;
@@ -178,8 +180,12 @@ int main() {
                         int t;
                         for(t =1; t<=npemain;t++){
                             P.contents[t].position = 1;
-                            /*SKILLNYA DIBUAT EMPTY*/
+                            /*SKILLNYA DIBUAT EMPTY*/   
+                            P.contents[t].skill.First = Nil;
+                            P.contents[t].skill.Last = Nil;
                         }
+                        
+                        is_undo = true;
                         endturn = true;
                     }
                     else {
@@ -193,6 +199,7 @@ int main() {
                             P.contents[a].playerBuff.isSenterPengecil = A.Pl.contents[a].playerBuff.isSenterPengecil;
                         }
                         S.ronde = A.ronde + 1;
+                        is_undo = true;
                         // UndoRonde(&S); 
                         urutan = 1;
                         endturn = true;
@@ -234,8 +241,8 @@ int main() {
                                 srand((unsigned) (time(&t2)));
                                 r1 = rskill(t1);
                                 r2 = rskill(t2);
-                                nambahskill(&P.contents[urutan].skill, r1);
-                                nambahskill(&P.contents[urutan].skill, r2);
+                                nambahskill(&P.contents[urutan].skill, r1, is_undo);
+                                nambahskill(&P.contents[urutan].skill, r2, is_undo);
                             }
                             else if (lihatisi(P.contents[urutan].skill,x)==2 && P.contents[urutan].playerBuff.isCerminPengganda==true){
                                 printf("Anda telah memiliki buff cermin pengganda\n");

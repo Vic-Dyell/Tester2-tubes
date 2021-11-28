@@ -116,7 +116,7 @@ int NbElmt (Listskill L);
 void DelI (Listskill *L, int n);
 // Menghapus elemen ke-n pada list
 
-void nambahskill (Listskill *L, int r);
+void nambahskill (Listskill *L, int r, boolean is_undo);
 // Menambahkan skill sesuai dengan randomize
 
 void buangskill (Listskill *L, int x);
