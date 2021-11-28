@@ -170,7 +170,7 @@ int main() {
                 }
                 else if (strcmp(cmd, "UNDO")==0){
                     status A;
-                    
+                    MakeEmpty(&A);
                     int a;
                     if (S.ronde == 1 ) {
                         S.ronde = 1;
@@ -192,8 +192,8 @@ int main() {
                             P.contents[a].playerBuff.isSenterPembesar = A.Pl.contents[a].playerBuff.isSenterPembesar;
                             P.contents[a].playerBuff.isSenterPengecil = A.Pl.contents[a].playerBuff.isSenterPengecil;
                         }
-                        // S.ronde = S.ronde - 1;
-                        UndoRonde(&S); 
+                        S.ronde = A.ronde + 1;
+                        // UndoRonde(&S); 
                         urutan = 1;
                         endturn = true;
                     }

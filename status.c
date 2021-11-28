@@ -80,8 +80,17 @@ void Setstatus (status s, status *s_copy){
 /* F.S. s_copy berisi salinan s*/
     int i;
     for(i = 1; i <= IdxMax; i++){
-        (*s_copy).Pl.contents[i] = s.Pl.contents[i];
+        (*s_copy).Pl.contents[i].position = s.Pl.contents[i].position;
+        (*s_copy).Pl.contents[i].skill = s.Pl.contents[i].skill;
+        (*s_copy).Pl.contents[i].playerBuff.isCerminPengganda = s.Pl.contents[i].playerBuff.isCerminPengganda;
+        (*s_copy).Pl.contents[i].playerBuff.isImun = s.Pl.contents[i].playerBuff.isImun;
+        (*s_copy).Pl.contents[i].playerBuff.isSenterPembesar = s.Pl.contents[i].playerBuff.isSenterPembesar;
+        (*s_copy).Pl.contents[i].playerBuff.isSenterPengecil = s.Pl.contents[i].playerBuff.isSenterPengecil;
     }
+    (*s_copy).ronde = s.ronde;
+    (*s_copy).Por = s.Por;
+    (*s_copy).Neff = s.Neff;
+    (*s_copy).contentsMapPlayer = s.contentsMapPlayer;
 }
 
 void SetPlayer (status *s, IdxType i, Player P){
