@@ -255,10 +255,10 @@ void nambahskill (Listskill *L, int r, boolean is_undo){ // r di sini diambil da
 
 void buangskill (Listskill *L, int x){
     if (IsEmpty(*L)) {
-        printf("Anda tidak mempunyai skill \n");    
+        printf("Anda tidak mempunyai skill \n") ;    
     }
     else {
-        
+
         x = abs(x);
         DelI(L, x);
     }
