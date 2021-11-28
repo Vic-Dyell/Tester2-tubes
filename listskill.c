@@ -258,6 +258,7 @@ void buangskill (Listskill *L, int x){
         printf("Anda tidak mempunyai skill \n");    
     }
     else {
+        
         x = abs(x);
         DelI(L, x);
     }

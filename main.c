@@ -202,7 +202,7 @@ int main() {
                         is_undo = true;
                         // UndoRonde(&S); 
                         urutan = 1;
-                        endturn = true;
+                        endturn = true ;
                     }
                 }
                 else if (strcmp(cmd, "SKILL")==0 && udahroll == true){

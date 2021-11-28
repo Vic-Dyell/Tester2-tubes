@@ -44,7 +44,7 @@ boolean IsEmpty (Listskill L);
 /****************** PEMBUATAN LIST KOSONG ******************/
 void CreateEmptySkill (Listskill *L);
 /* I.S. L sembarang  */
-/* F.S. Terbentuk list kosong. Lihat definisi di atas. */
+/* F.S. Terbentuk list kosong. Lihat definisi di atas.  */
 
 /****************** Manajemen Memori ******************/
 address Alokasi (infotype X);
