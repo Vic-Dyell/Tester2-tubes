@@ -37,9 +37,6 @@ int main(){
     // Tes MaxElmt
     printf("Hasil tes MaxElmt: %d\n", MaxElmt(S));
 
-    // Tes GetLastIdx 
-    printf("Hasil tes GetLastIdx: %d\n", GetLastIdx(S));
-
     // Tes SetPlayer
     ArrayP Pl;
     Player P;
@@ -57,6 +54,23 @@ int main(){
         printf("Tes SetStatus Berhasil \n");
     }
 
-    //Tes GetPlayerIdx
-    printf("Hasil GetPlayerIdx: %d\n",GetPlayerIdx(S,P));
+
+    // Tes inspect
+    int n = 5;
+    MAP peta;
+    Portal Port;
+    createEmptyMap(&peta);
+    Port = setPortal(Port, n);
+
+    printf("\n");
+    peta.contents[1] = '.'; 
+    peta.contents[2] = '.'; 
+    peta.contents[3] = '.'; 
+    peta.contents[4] = '#'; 
+    peta.contents[5] = '.'; 
+    peta.nEffM = 5; 
+
+    printf("Tes inspect: \n");
+    inspect(Port, peta, 4);
+
 }

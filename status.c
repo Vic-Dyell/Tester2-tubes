@@ -37,42 +37,6 @@ int MaxElmt (status s){
     return IdxMax;
 }
 
-IdxType GetLastIdx (status s) {
-/* Prekondisi : status s tidak kosong */
-/* Mengirimkan indeks elemen terakhir */
-    return (s).Neff;
-}
-
-IdxType GetPlayerIdx (status s, Player P){
-/* Prekondisi : status s tidak kosong */
-/* Mengirimkan idx player P dalam array */
-/* *** Menghasilkan sebuah elemen *** */
-
-    // Kamus
-    int i = 0;
-
-    // Algoritma
-    while ((P.playerName) != (s.Pl.contents[i].playerName) && i < s.Neff)
-    {
-        i++;
-    }
-    // index status s ditemukan
-    return i;
-}
-
-/* *** Menghasilkan sebuah elemen *** */
-Player GetPlayer (status s, IdxType i) {
-/* Prekondisi : status tidak kosong */
-/* Mengirimkan elemen tabel yang ke-i */
-    return (s).Pl.contents[i];
-}
-
-// MAP getMapPlayer (status s, IdxType i){
-// /* Prekondisi : status tidak kosong */
-// /* Mengirimkan elemen tabel yang ke-i */
-//     return (s).contentsMapPlayer[i];
-// }
-
 /* *** Selektor SET : Mengubah nilai status dan elemen status *** */
 /* Untuk type private/limited private pada bahasa tertentu */
 void Setstatus (status s, status *s_copy){
@@ -98,20 +62,6 @@ void SetPlayer (status *s, IdxType i, Player P){
 /* F.S. Elemen s yang ke-i bernilai P */
 /* Mengeset nilai elemen status yang ke-i sehingga bernilai P */
     (*s).Pl.contents[i] = P;
-}
-
-// void SetMap (status *s, IdxType i, MAP M){
-// /* I.S. s terdefinisi, sembarang */
-// /* F.S. Elemen s yang ke-i bernilai M */
-// /* Mengeset nilai elemen status yang ke-i sehingga bernilai M */
-//     (*s).contentsMapPlayer[i] = M;
-// }
-
-void SetPortal (status *s, IdxType i, Portal Por){
-/* I.S. s terdefinisi, sembarang */
-/* F.S. Elemen s yang ke-i bernilai Por */
-/* Mengeset nilai elemen status yang ke-i sehingga bernilai Por */
-    (*s).Por = Por;
 }
 
 void SetNeff (status *s, IdxType i){

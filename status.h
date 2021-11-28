@@ -39,22 +39,6 @@ int Nbstatus (status s);
 int MaxElmt (status s);
 /* Mengirimkan maksimum elemen yang dapat ditampung oleh status */
 
-/* *** Selektor INDEKS *** */
-IdxType GetLastIdx (status s);
-IdxType GetPlayerIdx (status s, Player P);
-/* Prekondisi : status s tidak kosong */
-/* Mengirimkan idx player P dalam array */
-/* *** Menghasilkan sebuah elemen *** */
-
-/* *** Menghasilkan sebuah elemen *** */
-Player GetPlayer (status s, IdxType i); 
-/* Prekondisi : status tidak kosong */
-/* Mengirimkan elemen tabel yang ke-i */
-MAP getMapPlayer (status s, IdxType i);
-/* Prekondisi : status tidak kosong */
-/* Mengirimkan elemen tabel yang ke-i */
-
-
 /* *** Selektor SET : Mengubah nilai status dan elemen status *** */
 /* Untuk type private/limited private pada bahasa tertentu */
 void Setstatus (status s, status *s_copy);
@@ -64,14 +48,6 @@ void SetPlayer (status *s, IdxType i, Player P);
 /* I.S. s terdefinisi, sembarang */
 /* F.S. Elemen s yang ke-i bernilai P */
 /* Mengeset nilai elemen status yang ke-i sehingga bernilai P */
-void SetMap (status *s, IdxType i, MAP M);
-/* I.S. s terdefinisi, sembarang */
-/* F.S. Elemen s yang ke-i bernilai M */
-/* Mengeset nilai elemen status yang ke-i sehingga bernilai M */
-void SetPortal (status *s, IdxType i, Portal Por);
-/* I.S. s terdefinisi, sembarang */
-/* F.S. Elemen s yang ke-i bernilai Por */
-/* Mengeset nilai elemen status yang ke-i sehingga bernilai Por */
 
 void SetNeff (status *s, IdxType i);
 /* I.S. s terdefinisi, sembarang */
@@ -92,34 +68,8 @@ void UndoRonde (status *s);
 /* F.S. ronde dikembalikan ke ronde sebelumnya*/
 /*Jika kondisi awal berada di ronde 1 maka ronde akan bernilai IdxUndef*/
 
-/* ********** TEST KOSONG/PENUH ********** */
-/* *** Test tabel kosong *** */
-boolean IsEmptyTab (status s);
-/* Mengirimkan true jika status s kosong, mengirimkan false jika tidak */
-/* *** Test tabel penuh *** */
-boolean IsFull (status s);
-/* Mengirimkan true jika status s penuh, mengirimkan false jika tidak */
-
-/* ********** TEST Teleporter & Penghalang ********** */
-/* Test Teleporter*/
-boolean isTeleporter(status s, int rollDadu);
-/* Mengirimkan true jika ada teleporter, dan false jika tidak*/
-/*Test Penghalang*/
-boolean isPenghalang(status s, int rollDadu, IdxType i);
-/* Mengirimkan true jika ada penghalang, dan false jika tidak*/
-
-/* Posisi pemain */
-/*Mengembalikan posisi pemain ditandai dengan tanda (*) pada MAP*/
-int posisi(status s, IdxType i); 
-
-/* Implementasi command map & inspect*/
-/*Command MAP */
-void map(status s);
-/*Melakukan pencetakan nama pemain, peta, dan posisi pemain*/
 /*Command inspect*/
 void inspect(Portal P, MAP M, int petak);
 /* Melakukan pencetakan apakah petak yang di input memiliki telporter atau penghalang*/
-
-
 
 #endif
