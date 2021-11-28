@@ -38,8 +38,7 @@ void CreateEmpty (Stack *S);
 
 boolean IsEmptyS (Stack S);
 /* Mengirim true jika Stack kosong: lihat definisi di atas */
-boolean IsFullS (Stack S);
-/* Mengirim true jika tabel penampung nilai elemen stack penuh */
+
 
 void Push (Stack * S, infotipe X);
 /* Menambahkan X sebagai elemen Stack S. */

@@ -9,9 +9,7 @@ void CreateEmpty (Stack *S){
 boolean IsEmptyS (Stack S){
     return (Top(S) ==  Nill);
 }
-boolean IsFullS (Stack S){
-    return (Top(S)== MaxEl);
-}
+
 
 void Push (Stack * S, infotipe X){
     status stat;
